@@ -9,7 +9,7 @@ jobs:
     env:
       msg: "awesoeme"
     steps:
-      - run: echo secrets.NAME >> secrets.txt
+      - run: echo ${{secrets.NAME}} >> secrets.txt
       - run: echo "🎉 The job was automatically triggered by a ${{ secrets.NAME }}  ||  ${{ env.msg }} || ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -19,9 +19,8 @@ jobs:
         run: |
            ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      
-      - name: Check out repository code
-        uses: actions/checkout@v3
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
         with:
           path: ./secrets.txt
  
