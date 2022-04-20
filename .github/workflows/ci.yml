@@ -18,6 +18,9 @@ jobs:
       - run: echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
       - run: echo "bGludXhoaW50LmNvbQo=" | base64 --decode >> output.txt
       - run: pwd
+      - run: ls
+      - run: cd android
+      - run: pwd
       - name: List files in the repository
         run: |
            ls ${{ github.workspace }}
