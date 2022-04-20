@@ -17,7 +17,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
       - run: echo "bGludXhoaW50LmNvbQo=" | base64 --decode >> output.txt
-      - run: echo pwd
+      - run: pwd
       - name: List files in the repository
         run: |
            ls ${{ github.workspace }}
