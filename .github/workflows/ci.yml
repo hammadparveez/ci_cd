@@ -16,6 +16,7 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo 'bGludXhoaW50LmNvbQo=' | base64 --decode
+      - run: echo "bGludXhoaW50LmNvbQo=" | base64 --decode >> output.txt
       - name: List files in the repository
         run: |
            ls ${{ github.workspace }}
@@ -23,5 +24,5 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
-          path: ./secrets.txt
+          path: ./output.txt
  
