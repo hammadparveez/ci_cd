@@ -65,6 +65,8 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
+    println System.getenv("PATH");
+    println 'A message which is logged at QUIET '+keystoreProperties['keyAlias'];
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
