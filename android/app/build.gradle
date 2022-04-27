@@ -48,7 +48,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-
+println 'A message which is====== logged at QUIET '+System.env.STORE_PASSWORD;
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.ci_cd.ci_cd"
@@ -61,13 +61,13 @@ android {
          release {
         storeFile file("../ci.jks")
         storePassword = System.env.STORE_PASSWORD
-        keyAlias = "android"
+        keyAlias = System.env.KEY_ALIAS
         keyPassword = System.env.KEY_PASSWORD
     }
     }
     println System.getenv("$System.env.KEY_PASSWORD");
     println System.getenv("$System.env.KEY_PASSWORD");
-    println 'A message which is logged at QUIET '+keystoreProperties['keyAlias'];
+    println 'A message which is logged at QUIET '+System.env.KEY_PASSWORD;
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
