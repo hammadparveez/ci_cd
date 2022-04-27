@@ -59,10 +59,10 @@ android {
     }
     signingConfigs {
          release {
-        storeFile file("../ci-keystore.jks")
-        storePassword = "$System.env.STORE_PASSWORD"
-        keyAlias = "ci"
-        keyPassword = "$System.env.KEY_PASSWORD"
+        storeFile file("../ci.jks")
+        storePassword = System.env.STORE_PASSWORD
+        keyAlias = "android"
+        keyPassword = System.env.KEY_PASSWORD
     }
     }
     println System.getenv("$System.env.KEY_PASSWORD");
