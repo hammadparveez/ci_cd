@@ -30,7 +30,6 @@ jobs:
       - uses: subosito/flutter-action@v1
       - name: Pub Get Packages
         run: flutter pub get
-      - name: Upload a Build Artifact
       - name: Build APPBUNDLE
         run: flutter build appbundle --release
       - name: Upalod File
