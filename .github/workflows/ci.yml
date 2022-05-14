@@ -8,17 +8,17 @@ jobs:
     env:
       msg: "awesoeme"
     steps:
+      - run: pwd
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
       - run: echo ${{secrets.KEY_ALIAS}} >> ./android/key.properties
       - run: echo ${{secrets.KEY_PASSWORD}} >> ./android/key.properties
       - run: echo ${{secrets.STORE_PASSWORD}} >>  ./android/key.properties
       - run: echo ${{secrets.JKS}} | base64 --decode >> ./android/keystore.jks
       - run: pwd
       - run: ls -la
-      - run: cd ./
-      - run: pwd
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+      - run: cd ./ 
       - run: echo "🍏 This job's status is ${{ job.status }}."
         env:
           KEY_ALIAS: ${{secrets.KEY_ALIAS}}
