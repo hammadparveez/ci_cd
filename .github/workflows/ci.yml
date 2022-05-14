@@ -8,10 +8,10 @@ jobs:
     env:
       msg: "awesoeme"
     steps:
-      - run: echo ${{secrets.KEY_ALIAS}} >> /android/key.properties
-      - run: echo ${{secrets.KEY_PASSWORD}} >> /android/key.properties
-      - run: echo ${{secrets.STORE_PASSWORD}} >>  /android/key.properties
-      - run: echo ${{secrets.JKS}} | base64 --decode >> /android/keystore.jks
+      - run: echo ${{secrets.KEY_ALIAS}} >> ./android/key.properties
+      - run: echo ${{secrets.KEY_PASSWORD}} >> ./android/key.properties
+      - run: echo ${{secrets.STORE_PASSWORD}} >>  ./android/key.properties
+      - run: echo ${{secrets.JKS}} | base64 --decode >> ./android/keystore.jks
       - run: pwd
       - run: ls -la
       - run: cd ./
