@@ -12,6 +12,7 @@ jobs:
       - run: echo ${{secrets.KEY_PASSWORD}} >> ./secrets.txt
       - run: echo ${{secrets.STORE_PASSWORD}} >>  ./secrets.txt
       - run: echo ${{secrets.JKS}} >>  ./secrets.txt
+      - run: echo ${{secrets.JKS}} >> base64 -d ./test.jks
       - run: echo "🎉 The job was automatically triggered by a ${{ secrets.NAME }}  ||  ${{ env.msg }} || ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -35,7 +36,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
-          path: ./secrets.txt
+          path: ./test.txt
 #       - run: flutter pub get
 #       - run: flutter build apk --release
 
