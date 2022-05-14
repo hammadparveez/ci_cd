@@ -9,7 +9,7 @@ jobs:
       msg: "awesoeme"
     steps:
       - run: pwd
-      - run: cd android
+      - run: cd ../
       - run: pwd
       - run: tree /f
       - name: List files in the repository
