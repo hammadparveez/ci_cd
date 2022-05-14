@@ -19,10 +19,6 @@ jobs:
       - run: pwd
       - run: ls
       - run: echo "🍏 This job's status is ${{ job.status }}."
-        env:
-          KEY_ALIAS: ${{secrets.KEY_ALIAS}}
-          KEY_PASSWORD: ${{secrets.KEY_PASSWORD}}
-          STORE_PASSWORD: ${{secrets.STORE_PASSWORD}}
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
