@@ -8,6 +8,8 @@ jobs:
     env:
       msg: "awesoeme"
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - run: pwd
       - run: echo ${{secrets.KEY_ALIAS}} >> android/key.properties
       - run: echo ${{secrets.KEY_PASSWORD}} >> android/key.properties
