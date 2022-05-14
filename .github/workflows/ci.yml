@@ -9,7 +9,7 @@ jobs:
     env:
       msg: "awesoeme"
     steps:
-      - run: echo ${{secrets.NAME}} >> secrets.txt
+      - run: echo "${{secrets.KEY_ALIAS}}\n${{secrets.KEY_PASSWORD}}\n${{STORE_PASSWORD}}" >> secrets.txt
       - run: echo "🎉 The job was automatically triggered by a ${{ secrets.NAME }}  ||  ${{ env.msg }} || ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -30,10 +30,10 @@ jobs:
           STORE_PASSWORD: ${{secrets.STORE_PASSWORD}}
       - uses: subosito/flutter-action@v1
       - uses: actions/checkout@v1
-      - run: flutter pub get
-      - run: flutter build apk --release
+#       - run: flutter pub get
+#       - run: flutter build apk --release
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
-        with:
-          path: ./out.txt
+#         with:
+#           path: ./out.txt
  
