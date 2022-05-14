@@ -23,12 +23,19 @@ jobs:
           KEY_ALIAS: ${{secrets.KEY_ALIAS}}
           KEY_PASSWORD: ${{secrets.KEY_PASSWORD}}
           STORE_PASSWORD: ${{secrets.STORE_PASSWORD}}
-      # - uses: subosito/flutter-action@v1
-      # - uses: actions/checkout@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+      - name: Pub Get Packages
+        run: flutter pub get
       - name: Upload a Build Artifact
+      - name: Build APPBUNDLE
+        run: flutter build appbundle --release
         uses: actions/upload-artifact@v3.0.0
         with:
-          path: ./
+          path: "build/app/outputs/bundle/release/"
 #       - run: flutter pub get
 #       - run: flutter build apk --release
 
