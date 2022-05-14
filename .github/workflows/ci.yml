@@ -13,11 +13,11 @@ jobs:
       - run: pwd
       - run: echo ${{secrets.KEY_ALIAS}} >> android/key.properties
       - run: echo ${{secrets.KEY_PASSWORD}} >> android/key.properties
-      - run: echo ${{secrets.STORE_PASSWORD}} >>  ./key.properties
-      - run: echo ${{secrets.JKS}} | base64 --decode >> ./keystore.jks
+      - run: echo ${{secrets.STORE_PASSWORD}} >>  android/key.properties
+      - run: echo ${{secrets.KEY_PATH}} >>  android/key.properties
+      - run: echo ${{secrets.JKS}} | base64 --decode >> android/key.jks
       - run: pwd
-      - run: ls -la
-      - run: cd ./
+      - run: ls
       - run: echo "🍏 This job's status is ${{ job.status }}."
         env:
           KEY_ALIAS: ${{secrets.KEY_ALIAS}}
