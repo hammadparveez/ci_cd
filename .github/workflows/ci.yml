@@ -9,14 +9,8 @@ jobs:
       msg: "awesoeme"
     steps:
       - run: pwd
-      - run: cd ../
-      - run: pwd
-      - run: tree /f
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo ${{secrets.KEY_ALIAS}} >> ./key.properties
-      - run: echo ${{secrets.KEY_PASSWORD}} >> ./key.properties
+      - run: echo ${{secrets.KEY_ALIAS}} >> android/key.properties
+      - run: echo ${{secrets.KEY_PASSWORD}} >> android/key.properties
       - run: echo ${{secrets.STORE_PASSWORD}} >>  ./key.properties
       - run: echo ${{secrets.JKS}} | base64 --decode >> ./keystore.jks
       - run: pwd
